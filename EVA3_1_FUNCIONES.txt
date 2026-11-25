@@ -1,0 +1,61 @@
+MySQL Shell 8.4.10
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+WARNING: Found errors loading plugins, for more details look at the log at: C:\Users\fdo_g\AppData\Roaming\MySQL\mysqlsh\mysqlsh.log
+ MySQL  SQL > \connect root@localhost 3307
+Creating a session to 'root@3307'
+Please provide the password for 'root@3307':
+MySQL Error 2005: No such host is known '3307'
+ MySQL  SQL > \connect root@localhost 3307
+Creating a session to 'root@3307'
+Please provide the password for 'root@3307':
+MySQL Error 2005: No such host is known '3307'
+ MySQL  SQL > \connect root@localhost3307
+Creating a session to 'root@localhost3307'
+Please provide the password for 'root@localhost3307':
+MySQL Error 2005: No such host is known 'localhost3307'
+ MySQL  SQL > \connect root@localhost:3307
+Creating a session to 'root@localhost:3307'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 4
+Server version: 11.4.9-MariaDB MariaDB Server
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3307  SQL > SET SESSION default_storage_engine = 'InnoDB';
+Query OK, 0 rows affected (0.0007 sec)
+ MySQL  localhost:3307  SQL > set global default_storage_engine = 'InnoDB';
+Query OK, 0 rows affected (0.0008 sec)
+ MySQL  localhost:3307  SQL > SHOW VARIABLES LIKE 'default_storage_engine';
++------------------------+--------+
+| Variable_name          | Value  |
++------------------------+--------+
+| default_storage_engine | InnoDB |
++------------------------+--------+
+1 row in set (0.0023 sec)
+ MySQL  localhost:3307  SQL > create database eva3;
+Query OK, 1 row affected (0.0048 sec)
+ MySQL  localhost:3307  SQL > drop function hola;
+ERROR: 1305 (42000): FUNCTION (UDF) hola does not exist
+ MySQL  localhost:3307  SQL > use eva3;
+Default schema set to `eva3`.
+Fetching global names, object names from `eva3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3307  eva3  SQL > drop function hola;
+Query OK, 0 rows affected (0.0057 sec)
+ MySQL  localhost:3307  eva3  SQL > select hola("LUIS");
++----------------+
+| hola("LUIS")   |
++----------------+
+| HOLA MUNDOLUIS |
++----------------+
+1 row in set (0.0046 sec)
+ MySQL  localhost:3307  eva3  SQL > select mostrar_mensaje("luis");
++-------------------------+
+| mostrar_mensaje("luis") |
++-------------------------+
+| holaluis                |
++-------------------------+
+1 row in set (0.0013 sec)
+ MySQL  localhost:3307  eva3  SQL >
